@@ -6,8 +6,7 @@ TagManager:
   tags:
   - FxTemporaire
   - projectile
-  - TeleportIgnore
-  - Pickupable
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -17,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - TeleportLocation
   - 
   - 
   - 
