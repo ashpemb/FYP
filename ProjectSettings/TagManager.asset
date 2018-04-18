@@ -7,6 +7,10 @@ TagManager:
   - FxTemporaire
   - projectile
   - Interactable
+  - GrillPlate
+  - Spawner
+  - Ingredient
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -28,12 +32,12 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - BunA
+  - BunB
+  - Cheese
+  - Salad
+  - Tomato
+  - Burger
   - 
   - 
   - 
