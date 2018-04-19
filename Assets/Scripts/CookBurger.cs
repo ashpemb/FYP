@@ -8,16 +8,17 @@ public class CookBurger : MonoBehaviour {
     public float burnTime = 15.0f;
     public float cookingTimer = 0.0f;
     public bool isCooking = false;
-    public int cookState = 0;
     public Material raw;
     public Material cooked;
     public Material burnt;
 
     MeshRenderer mr;
+    Burger ingredient;
 
     private void Start()
     {
         mr = this.GetComponent<MeshRenderer>();
+        ingredient = GetComponent<Burger>();
     }
 
 
@@ -53,12 +54,13 @@ public class CookBurger : MonoBehaviour {
     {
         if (cookingTimer >= cookTime && cookingTimer < burnTime)
         {
-            cookState = 1;
+            ingredient.cookState = 1;
             mr.material = cooked;
+            EventManager.PlayerCookBurger(this.gameObject, new PlayerTutorialArgs());
         }
         else if (cookingTimer >= burnTime)
         {
-            cookState = 2;
+            ingredient.cookState = 2;
             mr.material = burnt;
         }
     }

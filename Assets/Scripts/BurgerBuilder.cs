@@ -6,15 +6,16 @@ public class BurgerBuilder : MonoBehaviour {
 
     
 
-	// Use this for initialization
-	void Start () {
-        
+	public void DeleteChildren()
+    {
+        if (transform.childCount > 2)
+        {
+            for (int i = 2; i < transform.childCount; ++i)
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
+        }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     void OnTriggerEnter(Collider other)
     {
@@ -72,7 +73,8 @@ public class BurgerBuilder : MonoBehaviour {
         float yPush =  ((prevChildCollider.bounds.extents.y) + (childCollider.bounds.extents.y));
 
         child.transform.localPosition = new Vector3(prevChildPos.x, prevChildPos.y + yPush, prevChildPos.z);
-       
+
+        EventManager.PlayerPlaceBun(this.gameObject, new PlayerTutorialArgs(child));
 
     }
 }

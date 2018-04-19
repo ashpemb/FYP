@@ -32,6 +32,7 @@ public class VRInput : MonoBehaviour {
         playerController = transform.root.GetComponent<PlayerController>();
         line = GetComponent<LineRenderer>();
         VRInteractables = new List<VRInteractable>();
+        UIManager.gameObject.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -60,6 +61,7 @@ public class VRInput : MonoBehaviour {
             {
                 pickedUpObject = closestObj;
                 pickedUpObject.PickUp(transform);
+                EventManager.PlayerPickUpBurger(this.gameObject, new PlayerTutorialArgs());
             }
         }
 
@@ -78,8 +80,8 @@ public class VRInput : MonoBehaviour {
         if (controller.GetPressDown(EVRButtonId.k_EButton_SteamVR_Touchpad))
         {
             Debug.Log("Touch down");
-            if (UIOpen)
-                UIManager.Interact();
+            
+                
         }
 
         if (controller.GetPressUp(EVRButtonId.k_EButton_SteamVR_Touchpad))
@@ -93,18 +95,6 @@ public class VRInput : MonoBehaviour {
             if (pickedUpObject != null)
             {
                 pickedUpObject.Interact(touchPad);
-            }
-            else if(UIOpen)
-            {
-                UIInputTimer += Time.deltaTime;
-                if (this.UIInputTimer >= UIInputTime)
-                {
-                    if (Mathf.Abs(touchPad.y) > UIInputDeadZone)
-                    {
-                        UIManager.Input(new Vector2(0, touchPad.y));
-                        UIInputTimer = 0f;
-                    }
-                }
             }
             else
             {
@@ -127,6 +117,8 @@ public class VRInput : MonoBehaviour {
             if (!UIOpen)
             {
                 OpenUI();
+                UIManager.display.UpdateText();
+                EventManager.PlayerOpenUI(this.gameObject, new PlayerTutorialArgs());
             }
             else
             {
@@ -156,6 +148,7 @@ public class VRInput : MonoBehaviour {
         {
             UIManager.OpenUI(this);
             UIOpen = true;
+            
         }
     }
 
@@ -262,4 +255,15 @@ public class VRInput : MonoBehaviour {
         }
     }
 
+    public GameObject GetPickUp()
+    {
+        if(pickedUpObject != null)
+        {
+            return pickedUpObject.gameObject;
+        }
+        else
+        {
+            return null;
+        }
+    }
 }

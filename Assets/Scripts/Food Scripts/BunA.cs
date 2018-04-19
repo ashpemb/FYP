@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BunA : Ingredient {
 
-    BunA()
+    public BunA()
     {
-        ingredientType = IngredientType.BunA;
+        ingredientType = IngredientType.BottomBun;
     }
 	
 }

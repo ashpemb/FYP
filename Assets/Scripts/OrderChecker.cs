@@ -6,26 +6,34 @@ public class OrderChecker : MonoBehaviour {
 
     
     List<Ingredient> createdBurger = new List<Ingredient>();
-    public BunA bunA;
-    public Burger burger;
-    public BunB bunB;
+    float timeTaken = 0;
 
     bool burgerCorrect = false;
+    bool buttonPushed = false;
+
+    private void Update()
+    {
+        timeTaken += Time.deltaTime;
+    }
+
+    public void NoOrderUp()
+    {
+        buttonPushed = true;
+    }
 
     public void OrderUp()
     {
-        BurgerOrder bOrder = new BurgerOrder();
-        bOrder.OrderList = new List<Ingredient>();
-        bOrder.OrderList.Add(bunA);
-        bOrder.OrderList.Add(burger);
-        bOrder.OrderList.Add(bunB);
-        Debug.Log(CheckOrder(this.gameObject, bOrder));
+        if (buttonPushed != true)
+        {
+            EventManager.PlayerFinishBurger(this.gameObject, new PlayerBurgerArgs(timeTaken, CheckOrder(this.gameObject, GameManager.instance.currentOrder)));
+            //Debug.Log(CheckOrder(this.gameObject, GameManager.instance.currentOrder));
+            //GameManager.instance.NewOrder();
+            
+        }
     }
 
     public bool CheckOrder(GameObject Meal, BurgerOrder bOrder)
     {
-
-        
         if (Meal.transform.childCount > 2)
         {
             for (int i = 2; i < Meal.transform.childCount; ++i)
@@ -33,12 +41,34 @@ public class OrderChecker : MonoBehaviour {
                 createdBurger.Add(Meal.transform.GetChild(i).GetComponent<Ingredient>());
             }
         }
-
+        if (createdBurger.Count != bOrder.OrderList.Count)
+        {
+            burgerCorrect = false;
+            createdBurger.Clear();
+            return burgerCorrect;
+        }
         for (int j = 0; j < bOrder.OrderList.Count; ++j)
         {
-            if (bOrder.OrderList[j].ingredientType == createdBurger[j].ingredientType )
+            
+            if (bOrder.OrderList[j].ingredientType == createdBurger[j].ingredientType)
             {
-                burgerCorrect = true;
+                if (createdBurger[j].ingredientType == IngredientType.Burger)
+                {
+                    if (createdBurger[j].GetComponent<Burger>().cookState == 1)
+                    {
+                        burgerCorrect = true;
+                    }
+                    else
+                    {
+                        burgerCorrect = false;
+                        break;
+                    }
+                }
+                else
+                {
+                    burgerCorrect = true;
+                    
+                }
             }
             else
             {
@@ -48,7 +78,13 @@ public class OrderChecker : MonoBehaviour {
         }
 
         
+        createdBurger.Clear();
         return burgerCorrect;
         
+    }
+
+    public void ButtonNotPressed()
+    {
+        buttonPushed = false;
     }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Burger : Ingredient {
 
-
-    Burger()
+    public int cookState = 0;
+    public Burger()
     {
         ingredientType = IngredientType.Burger;
     }

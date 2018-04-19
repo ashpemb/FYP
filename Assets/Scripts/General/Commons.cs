@@ -23,10 +23,10 @@ enum BURGERLAYERS
 
 public enum IngredientType
 {
+    BottomBun,
+    TopBun,
     Burger,
     Cheese,
-    BunA,
-    BunB,
     Tomato,
     Salad
 }

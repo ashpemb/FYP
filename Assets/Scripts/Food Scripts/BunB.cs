@@ -5,8 +5,8 @@ using UnityEngine;
 public class BunB : Ingredient {
 
 
-    BunB()
+    public BunB()
     {
-        ingredientType = IngredientType.BunB;
+        ingredientType = IngredientType.TopBun;
     }
 }
