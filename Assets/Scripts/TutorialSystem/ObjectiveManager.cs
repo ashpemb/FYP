@@ -24,7 +24,7 @@ public class ObjectiveManager : MonoSingleton<ObjectiveManager>
             objectivesDictionary.Add(primaryObjective.nameOfObjective, primaryObjective);
         }
 
-        LoadObjective("Open UI", 0, 0); //loads first objective
+        LoadObjective("StartTutorial", 0, 0); //loads first objective
     }
 
 

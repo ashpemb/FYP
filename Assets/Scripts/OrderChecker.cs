@@ -11,6 +11,11 @@ public class OrderChecker : MonoBehaviour {
     bool burgerCorrect = false;
     bool buttonPushed = false;
 
+    private void Start()
+    {
+        EventManager.E_PlayerFinishBurger += ResetBurger;
+    }
+
     private void Update()
     {
         timeTaken += Time.deltaTime;
@@ -19,6 +24,20 @@ public class OrderChecker : MonoBehaviour {
     public void NoOrderUp()
     {
         buttonPushed = true;
+    }
+
+    private void ResetBurger(GameObject sender, PlayerBurgerArgs args)
+    {
+        if (args.burgerCorrect == true)
+        {
+            SoundManager.instance.PlaySingle("Correct");
+            GameManager.instance.NewOrder();
+        }
+        else
+        {
+            sender.GetComponent<BurgerBuilder>().DeleteChildren();
+            SoundManager.instance.PlaySingle("Incorrect");
+        }
     }
 
     public void OrderUp()

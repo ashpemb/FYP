@@ -63,6 +63,8 @@ public class PrimaryObjective : Objective
 
     public override void Complete()
     {
+        SoundManager.instance.PlaySingle("Correct");
+
         DestroyGUIPanelInstance();
 
 

@@ -24,11 +24,25 @@ public class GameManager : MonoSingleton<GameManager> {
         {
             NewOrder();
         }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            TestOrder();
+        }
 	}
 
     public void NewOrder()
     {
         currentOrder.OrderList = OrderGenerator.instance.GenerateOrder(Random.Range(1, 5));
+        builder.DeleteChildren();
+        OrderUI.UpdateText();
+    }
+
+    public void TestOrder()
+    {
+        currentOrder.OrderList.Clear();
+        currentOrder.OrderList.Add(new BunA());
+        currentOrder.OrderList.Add(new Burger());
+        currentOrder.OrderList.Add(new BunB());
         builder.DeleteChildren();
         OrderUI.UpdateText();
     }

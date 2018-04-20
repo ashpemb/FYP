@@ -40,9 +40,17 @@ using UnityEngine;
 
 		public void PlaySingle(string name)
         {
-            if (soundEnabled == true)
-            {
-                EfxSource = gameObject.GetComponent<AudioSource>();
+                if (soundEnabled == true)
+                {
+                if (Camera.main.gameObject.GetComponent<AudioSource>() != null)
+                {
+                    EfxSource = Camera.main.gameObject.GetComponent<AudioSource>();
+                }
+                else
+                {
+                    EfxSource = Camera.main.gameObject.AddComponent<AudioSource>();
+                    
+                }
                 EfxSource.volume = setEfxVolume * volumeChange;
                 EfxSource.clip = _allAudio[name];
                 EfxSource.Play();

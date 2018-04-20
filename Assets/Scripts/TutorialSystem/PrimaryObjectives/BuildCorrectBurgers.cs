@@ -16,11 +16,6 @@ public class BuildCorrectBurgers : PrimaryObjective {
         {
             ++progress;
             ProgressChanged();
-            GameManager.instance.NewOrder();
-        }
-        else
-        {
-            sender.GetComponent<BurgerBuilder>().DeleteChildren();
         }
 
         if (progress == maxProgress)
@@ -33,7 +28,7 @@ public class BuildCorrectBurgers : PrimaryObjective {
     public override void Complete()
     {
         EventManager.E_PlayerFinishBurger -= BurgerFinished;
-        GameManager.instance.NewOrder();
+        
         base.Complete();
     }
 }
