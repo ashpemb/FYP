@@ -14,7 +14,7 @@ public class PrimaryObjective : Objective
     public bool sequential;
     public string[] nextObjectives;
     GameObject GUIPanel;
-    GUI_Objective objectiveGUI;
+    UI_Objective objectiveGUI;
 
     public override void Activated()
     {
@@ -22,7 +22,7 @@ public class PrimaryObjective : Objective
         base.Activated();
         subObjectives = GetComponentsInChildren<SubObjective>();
 
-        objectiveGUI = GUIPanel.GetComponent<GUI_Objective>();
+        objectiveGUI = GUIPanel.GetComponent<UI_Objective>();
         objectiveGUI.SetObjectiveDescriptionText(description);
         UpdateGUI();
 

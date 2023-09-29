@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 114000013840745370}
   - component: {fileID: 114000010647167860}
   - component: {fileID: 114000013054233982}
-  - component: {fileID: 114000012766712306}
+  - component: {fileID: 114931967382080394}
   m_Layer: 5
   m_Name: Objective_Tips+Progress
   m_TagString: Untagged
@@ -333,20 +333,6 @@ MonoBehaviour:
   m_Text: 'Tip: Press the B button
 
 '
---- !u!114 &114000012766712306
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012535198140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83dd1596ad3e5564382f131df9d83300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectiveDescription: {fileID: 114000010215105976}
-  objectiveProgress: {fileID: 114000010416771950}
-  subObjectiveText: {fileID: 114000012643288554}
 --- !u!114 &114000013054233982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -407,6 +393,20 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &114931967382080394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012535198140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e831387b7e9fbf469c09d362b7d3a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveDescription: {fileID: 114000010215105976}
+  objectiveProgress: {fileID: 114000010416771950}
+  subObjectiveText: {fileID: 114000012643288554}
 --- !u!222 &222000010240932060
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class Congratulations : PrimaryObjective {
 
-	
+    public override void Activated()
+    {
+        StatsManager.instance.isInTutorial = false;
+        base.Activated();
+    }
 }

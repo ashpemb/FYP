@@ -45,6 +45,7 @@ public class OrderChecker : MonoBehaviour {
         if (buttonPushed != true)
         {
             EventManager.PlayerFinishBurger(this.gameObject, new PlayerBurgerArgs(timeTaken, CheckOrder(this.gameObject, GameManager.instance.currentOrder)));
+            timeTaken = 0;
             //Debug.Log(CheckOrder(this.gameObject, GameManager.instance.currentOrder));
             //GameManager.instance.NewOrder();
             

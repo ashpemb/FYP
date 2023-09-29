@@ -10,8 +10,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Valve
-  productName: SteamVR
+  companyName: Zangetsu Games
+  productName: Burger Simulator 2018
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -73,7 +73,7 @@ PlayerSettings:
   Force IOS Speakers When Recording: 0
   submitAnalytics: 1
   usePlayerLog: 1
-  bakeCollisionMeshes: 0
+  bakeCollisionMeshes: 1
   forceSingleInstance: 0
   resizableWindow: 1
   useMacAppStoreValidation: 0
@@ -122,7 +122,13 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 1534485544888928, guid: c41f3667b68d9274b97cee673d17746a, type: 2}
+  - {fileID: 1225754539352942, guid: cbcb3aca2e802e844a37c258ccf3e799, type: 2}
+  - {fileID: 1800171321314976, guid: 0c9130d0cb313f1499634c657ddd7fb5, type: 2}
+  - {fileID: 1017797663177746, guid: 048571fb32c9a2046b9cdf9e8fb830a4, type: 2}
+  - {fileID: 1955597720292318, guid: 8acbe9cb9b7c75e4782575effe51dfdf, type: 2}
+  - {fileID: 1573755534457920, guid: 56bff4b7f05018643a07a8ba1cd6a5f3, type: 2}
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
   xboxOneDisableKinectGpuReservation: 0
@@ -161,7 +167,7 @@ PlayerSettings:
   CreateWallpaper: 0
   APKExpansionFiles: 0
   keepLoadedShadersAlive: 0
-  StripUnusedMeshComponents: 0
+  StripUnusedMeshComponents: 1
   VertexChannelCompressionMask:
     serializedVersion: 2
     m_Bits: 238

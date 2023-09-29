@@ -21,15 +21,15 @@ public class OrderDisplay : MonoBehaviour {
         {
             if (order.OrderList[i].ingredientType == IngredientType.TopBun)
             {
-                orderText += "Top Bun\n";
+                orderText += (i + 1) + " Top Bun\n";
             }
             else if (order.OrderList[i].ingredientType == IngredientType.BottomBun)
             {
-                orderText += "Botttom Bun\n";
+                orderText += (i + 1) + " Bottom Bun\n";
             }
             else
             {
-                orderText += order.OrderList[i].ingredientType.ToString() + " \n";
+                orderText += (i + 1) + " " + order.OrderList[i].ingredientType.ToString() + " \n";
             }
         }
 
